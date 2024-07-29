@@ -83,15 +83,15 @@ def main():
                 case "DU":
                     uid = input("Enter user id: ")
                     dbh.deleteUser(uid)
-                    logging.info("User ID" + uid + " deleted.")
+                    logging.info("User ID " + uid + " deleted.")
                 case "DB":
                     bid = input("Enter book id: ")
                     dbh.deleteBook(bid)
-                    logging.info("Book ID" + bid + " deleted.")
+                    logging.info("Book ID " + bid + " deleted.")
                 case "DO":
                     oid = input("Enter order id: ")
                     dbh.deleteOrder(oid)
-                    logging.info("Order ID" + oid + " deleted.")
+                    logging.info("Order ID " + oid + " deleted.")
                 case "SU":
                     dbh.allUsers()
                     input("\nPress enter to continue.")
@@ -124,6 +124,7 @@ def main():
                     else:
                         dbh.createOrder(uid, bid)
                         input("Order Placed. Press enter to continue.")
+                        logging.info("Order between user ID " + str(uid) + " and book ID " + str(bid) + " added.")
                 case "O":
                     dbh.getUserOrders(uid)
                     input("\nPress enter to continue.")
