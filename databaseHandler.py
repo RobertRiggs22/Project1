@@ -52,6 +52,11 @@ class databaseHandler:
         for book in books:
             print(book)
 
+    def allBookspretty(self):
+        books = self.db.books.find({})
+        for book in books:
+            print("ID: " + str(book["bid"]) + "\tTitle: " + book["title"] + "\tDescription: " + book["description"] + "\tPage count: " + str(book["pagecount"]) + "\tPrice: " + str(book["price"]))
+
     def allOrders(self):
         orders = self.db.orders.find({})
         for order in orders:
@@ -122,5 +127,18 @@ class databaseHandler:
             test = user_orders[0]
             for order in user_orders:
                 print(order)
+        except:
+            print("No order history found.")
+
+    def getUserOrderspretty(self, uid):
+        try:
+            user_orders = self.db.orders.find({"uid": int(uid)})
+            test = user_orders[0]
+            print("Books ordered:")
+            for order in user_orders:
+                ordered_books = self.db.books.find({"bid": int(order["bid"])})
+                test = ordered_books[0]
+                for book in ordered_books:
+                    print(book["title"])
         except:
             print("No order history found.")

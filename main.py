@@ -115,7 +115,7 @@ def main():
             print("")
             match response:
                 case "P":
-                    dbh.allBooks()
+                    dbh.allBookspretty()
                     print("")
                     bid = input("Type the bid of the book you would like.\n")
                     result = dbh.bookExists(bid)
@@ -126,7 +126,7 @@ def main():
                         input("Order Placed. Press enter to continue.")
                         logging.info("Order between user ID " + str(uid) + " and book ID " + str(bid) + " added.")
                 case "O":
-                    dbh.getUserOrders(uid)
+                    dbh.getUserOrderspretty(uid)
                     input("\nPress enter to continue.")
                 case "Q":
                     logging.info("User " + username + " logged out.")
